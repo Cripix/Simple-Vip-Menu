@@ -1,0 +1,7 @@
+"Blocked Tags"
+{
+	"1"
+	{
+		"tag"			"Owner"
+	}
+}

@@ -1,0 +1,266 @@
+﻿"Phrases"
+{
+	"Dead"
+	{
+		"hu"			"*HALOTT*"
+		"en"			"*DEAD*"
+	}
+	"Team"
+	{
+		"hu"			"(CSAPAT)"
+		"en"			"(TEAM)"
+	}
+	"Spec"
+	{
+		"hu"			"*NÉZÖ*"
+		"en"			"*SPEC*"
+	}
+	"Spec_Team"
+	{
+		"hu"			"(Megfigyelö)"
+		"en"			"(Spectator)"
+	}
+	"BonusHPON"
+	{
+		"#format"		"{1:s}"
+		"hu"			"Bónusz {1} HP bekapcsolása"
+		"en"			"Enable {1} HP Bonus"
+	}
+	"BonusHPOFF"
+	{
+		"#format"		"{1:s}"
+		"hu"			"Bónusz HP Kikapcsolva"
+		"en"			"Bonus HP is Disabled"
+	}
+	"BonusHPDisabled"
+	{
+		"hu"			"Bónusz {1} HP kikapcsolása"
+		"en"			"Disable {1} HP Bonus"
+	}
+	"BonusArmorON"
+	{
+		"#format"		"{1:s}"
+		"hu"			"Bónusz {1} Armor bekapcsolása"
+		"en"			"Enable {1} Armor Bonus"
+	}
+	"BonusArmorOFF"
+	{
+		"#format"		"{1:s}"
+		"hu"			"Bónusz {1} Armor kikapcsolása"
+		"en"			"Disable {1} Armor Bonus"
+	}
+	"BonusArmorDisabled"
+	{
+		"hu"			"Bónusz Armor Kikapcsolva"
+		"en"			"Bonus Armor is Disabled"
+	}
+	"ClanTagEditor"
+	{
+		"hu"			"CsapatJelzés Szerkesztése"
+		"en"			"ClanTag Editor"
+	}
+	"ChatMods"
+	{
+		"hu"			"Chat Kiegészítések"
+		"en"			"Chat Modifications"
+	}
+	"OnlyVip"
+	{
+		"hu"			"Ez a parancs csak a VIP-knak elérhetö."
+		"en"			"This command is only for VIP players."
+	}
+	"OnlyInGame"
+	{
+		"hu"			"Ez a parancs csak játékban használható."
+		"en"			"This command is InGame only."
+	}
+	"TurnedOff"
+	{
+		"hu"			"A parancs a ki van kapcsolva a szerveren."
+		"en"			"The command is turned off in the server."
+	}
+	"SetNameTag"
+	{
+		"hu"			"Elötag beállítása"
+		"en"			"Set NameTag"
+	}
+	"SetTagColor"
+	{
+		"hu"			"Elötag színének beállítása"
+		"en"			"Set NameTag Color"
+	}
+	"SetNameColor"
+	{
+		"hu"			"Név színének beállítása"
+		"en"			"Set Name Color"
+	}
+	"SetChatColor"
+	{
+		"hu"			"Írás színének beállítása"
+		"en"			"Set Chat Color"
+	}
+	"RemoveNameTag"
+	{
+		"hu"			"Elötag törlése"
+		"en"			"Remove NameTag"
+	}
+	"RemovedNameTag"
+	{
+		"hu"			"Az Elötagod sikeresen törölve."
+		"en"			"Your NameTag has been removed."
+	}
+	"OnTypeNameTag"
+	{
+		"hu"			"Írd be a chatre az Elötagot amit sszeretnél vagy írd be hogy !cancel a megszakításhoz."
+		"en"			"Type your name tag in the chat or type !cancel to abort."
+	}
+	"OnTypeClanTag"
+	{
+		"hu"			"Írd be a chatre az CsapatJelzést amit sszeretnél vagy írd be hogy !cancel a megszakításhoz."
+		"en"			"Type your clan tag in the chat or type !cancel to abort."
+	}
+	"DefaultColor"
+	{
+		"hu"			"Alap"
+		"en"			"Default"
+	}
+	"StrongRed"
+	{
+		"hu"			"Vörös"
+		"en"			"Strong Red"
+	}
+	"TeamColor"
+	{
+		"hu"			"Csapat Szín"
+		"en"			"Team Color"
+	}
+	"Green"
+	{
+		"hu"			"Zöld"
+		"en"			"Green"
+	}
+	"Turquoise"
+	{
+		"hu"			"Türkiz"
+		"en"			"Turquoise"
+	}
+	"Lime"
+	{
+		"hu"			"Lime"
+		"en"			"Lime"
+	}
+	"LightRed"
+	{
+		"hu"			"Halvány Piros"
+		"en"			"Light Red"
+	}
+	"LightGray"
+	{
+		"hu"			"Halvány Szürke"
+		"en"			"Light Gray"
+	}
+	"Yellow"
+	{
+		"hu"			"Citromsárga"
+		"en"			"Yellow"
+	}
+	"Gray"
+	{
+		"hu"			"Szürke"
+		"en"			"Gray"
+	}
+	"DarkBlue"
+	{
+		"hu"			"Sötét Kék"
+		"en"			"Dark Blue"
+	}
+	"Pink"
+	{
+		"hu"			"Rózsaszín"
+		"en"			"Pink"
+	}
+	"Orange"
+	{
+		"hu"			"Narancssárga"
+		"en"			"Orange"
+	}
+	"ChangedTagColor"
+	{
+		"#format"		"{1:s},{2:s}"
+		"hu"			"Megváltoztattad az Elötag színét {1}{2}"
+		"en"			"You changed your tag color to {1}{2}"
+	}
+	"ChangedNameColor"
+	{
+		"#format"		"{1:s},{2:s}"
+		"hu"			"Megváltoztattad az Neved színét {1}{2}"
+		"en"			"You changed your name color to {1}{2}"
+	}
+	"ChangedChatColor"
+	{
+		"#format"		"{1:s},{2:s}"
+		"hu"			"Megváltoztattad az Írásod színét {1}{2}"
+		"en"			"You changed your chat color to {1}{2}"
+	}
+	"ChangeClanTag"
+	{
+		"hu"			"CsapatJelzés átállítása"
+		"en"			"Set ClanTag"
+	}
+	"RemoveClanTag"
+	{
+		"hu"			"CsapatJelzés átállítása"
+		"en"			"Remove ClanTag"
+	}
+	"RemovedClanTag"
+	{
+		"hu"			"A CsapatJelzésed sikeresen törölve."
+		"en"			"Your ClanTag has been removed."
+	}
+	"TypeAborted"
+	{
+		"hu"			"Az átállítást megszakítottad."
+		"en"			"The change has been aborted."
+	}
+	"NotAllowed"
+	{
+		"hu"			"Ez a jelzés tiltva van a szerveren."
+		"en"			"This tag is blocked by the server."
+	}
+	"TagReset"
+	{
+		"hu"			"A Jelzést sikeresen törölted!"
+		"en"			"You just reset your tag!"
+	}
+	"TagChanged"
+	{
+		"#format"		"{1:s}"
+		"hu"			"A Jelzésed megváltoztatva erre {1}"
+		"en"			"You changed your tag to {1}"
+	}
+	"RainbowOn"
+	{
+		"hu"			"Szivárvány Modell Bekapcsolása"
+		"en"			"Enable Rainbow Model"
+	}
+	"RainbowOff"
+	{
+		"hu"			"Szivárvány Modell Kikapcsolása"
+		"en"			"Disable Rainbow Model"
+	}
+	"RainbowDisabled"
+	{
+		"hu"			"Szivárvány Modell Kikapcsolva"
+		"en"			"Rainbow Model Disabled"
+	}
+	"RainbowEnabledMessage"
+	{
+		"hu"			"Sikeresen beállítottad a Szivárvány Modellt."
+		"en"			"Rainbow Model turned on."
+	}
+	"RainbowDisabledMessage"
+	{
+		"hu"			"Sikeresen kikapcsoltad a Szivárvány Modellt"
+		"en"			"Rainbow Model turned off."
+	}
+}
