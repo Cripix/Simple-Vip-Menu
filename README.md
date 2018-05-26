@@ -28,13 +28,13 @@ Simple Vip Menu
             sm_entvip_rainbowmodel - Allow vip players to use rainbow model?
             sm_entvip_deadrestrict - Restrict dead players to communicate with alive players? (JailBreak)
 
-            !guardmenu (also !gm)
+            !vip
 
     Installation
 
             Upload the files
             Load the plugin or change the map
-            Configure the plugin over guardmenu.cfg (csgo/cfg/sourcemod/guardmenu.cfg)
+            Configure the plugin over entvip.cfg (csgo/cfg/sourcemod/entvip.cfg)
 
     Requests or Known bugs
 
