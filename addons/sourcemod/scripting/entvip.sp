@@ -64,7 +64,7 @@ public Plugin myinfo =
 	name = "[CSGO] Entity VIP System", 
 	author = "Entity", 
 	description = "VIP Features for CSGO", 
-	version = "1.1b"
+	version = "1.0"
 };
 
 public void OnPluginStart()
