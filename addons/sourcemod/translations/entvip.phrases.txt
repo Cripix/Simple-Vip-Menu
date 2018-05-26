@@ -4,263 +4,314 @@
 	{
 		"hu"			"*HALOTT*"
 		"en"			"*DEAD*"
+		"fr"			"*MORT*"
 	}
 	"Team"
 	{
 		"hu"			"(CSAPAT)"
 		"en"			"(TEAM)"
+		"fr"			"(ÉQUIPE)"
 	}
 	"Spec"
 	{
 		"hu"			"*NÉZÖ*"
 		"en"			"*SPEC*"
+		"fr"			"*SPEC*"
 	}
 	"Spec_Team"
 	{
 		"hu"			"(Megfigyelö)"
 		"en"			"(Spectator)"
+		"fr"			"(Spectateur)"
 	}
 	"BonusHPON"
 	{
 		"#format"		"{1:s}"
 		"hu"			"Bónusz {1} HP bekapcsolása"
 		"en"			"Enable {1} HP Bonus"
+		"fr"			"Activer {1} le Bonus HP"
 	}
 	"BonusHPOFF"
 	{
 		"#format"		"{1:s}"
 		"hu"			"Bónusz HP Kikapcsolva"
 		"en"			"Bonus HP is Disabled"
+		"fr"			"Le Bonus HP est désactivé"
 	}
 	"BonusHPDisabled"
 	{
 		"hu"			"Bónusz {1} HP kikapcsolása"
 		"en"			"Disable {1} HP Bonus"
+		"fr"			"Désactiver {1} Bonus HP"
 	}
 	"BonusArmorON"
 	{
 		"#format"		"{1:s}"
 		"hu"			"Bónusz {1} Armor bekapcsolása"
 		"en"			"Enable {1} Armor Bonus"
+		"fr"			"Désactiver {1} Bonus HP"
 	}
 	"BonusArmorOFF"
 	{
 		"#format"		"{1:s}"
 		"hu"			"Bónusz {1} Armor kikapcsolása"
 		"en"			"Disable {1} Armor Bonus"
+		"fr"			"Désactiver {1} Bonus d'armure"
 	}
 	"BonusArmorDisabled"
 	{
 		"hu"			"Bónusz Armor Kikapcsolva"
 		"en"			"Bonus Armor is Disabled"
+		"fr"			"Le Bonus d'armure est désactivée"
 	}
 	"ClanTagEditor"
 	{
 		"hu"			"CsapatJelzés Szerkesztése"
 		"en"			"ClanTag Editor"
+		"fr"			"Éditeur de tag de clan"
 	}
 	"ChatMods"
 	{
 		"hu"			"Chat Kiegészítések"
 		"en"			"Chat Modifications"
+		"fr"			"Modifications du chat"
 	}
 	"OnlyVip"
 	{
 		"hu"			"Ez a parancs csak a VIP-knak elérhetö."
 		"en"			"This command is only for VIP players."
+		"fr"			"Cette commande est réservée aux joueurs VIP."
 	}
 	"OnlyInGame"
 	{
 		"hu"			"Ez a parancs csak játékban használható."
 		"en"			"This command is InGame only."
+		"fr"			"Cette commande est uniquement en jeu."
 	}
 	"TurnedOff"
 	{
 		"hu"			"A parancs a ki van kapcsolva a szerveren."
 		"en"			"The command is turned off in the server."
+		"fr"			"La commande est désactivée sur le serveur."
 	}
 	"SetNameTag"
 	{
 		"hu"			"Elötag beállítása"
 		"en"			"Set NameTag"
+		"fr"			"Définir une étiquette de nom"
 	}
 	"SetTagColor"
 	{
 		"hu"			"Elötag színének beállítása"
 		"en"			"Set NameTag Color"
+		"fr"			"Définir la couleur de l'étiquette"
 	}
 	"SetNameColor"
 	{
 		"hu"			"Név színének beállítása"
 		"en"			"Set Name Color"
+		"fr"			"Définir la couleur du nom"
 	}
 	"SetChatColor"
 	{
 		"hu"			"Írás színének beállítása"
 		"en"			"Set Chat Color"
+		"fr"			"Définir la couleur du chat"
 	}
 	"RemoveNameTag"
 	{
 		"hu"			"Elötag törlése"
 		"en"			"Remove NameTag"
+		"fr"			"Enlever l'étiquette"
 	}
 	"RemovedNameTag"
 	{
 		"hu"			"Az Elötagod sikeresen törölve."
 		"en"			"Your NameTag has been removed."
+		"fr"			"Votre étiquette a été supprimé."
 	}
 	"OnTypeNameTag"
 	{
 		"hu"			"Írd be a chatre az Elötagot amit sszeretnél vagy írd be hogy !cancel a megszakításhoz."
 		"en"			"Type your name tag in the chat or type !cancel to abort."
+		"fr"			"Tapez votre étiquette dans le chat ou tapez !cancel pour abandonner."
 	}
 	"OnTypeClanTag"
 	{
 		"hu"			"Írd be a chatre az CsapatJelzést amit sszeretnél vagy írd be hogy !cancel a megszakításhoz."
 		"en"			"Type your clan tag in the chat or type !cancel to abort."
+		"fr"			"Tapez votre tag de clan dans le chat ou tapez !cancel pour annuler."
 	}
 	"DefaultColor"
 	{
 		"hu"			"Alap"
 		"en"			"Default"
+		"fr"			"Défaut"
 	}
 	"StrongRed"
 	{
 		"hu"			"Vörös"
 		"en"			"Strong Red"
+		"fr"			"Rouge foncé"
 	}
 	"TeamColor"
 	{
 		"hu"			"Csapat Szín"
 		"en"			"Team Color"
+		"fr"			"Couleur de l'équipe"
 	}
 	"Green"
 	{
 		"hu"			"Zöld"
 		"en"			"Green"
+		"fr"			"Vert"
 	}
 	"Turquoise"
 	{
 		"hu"			"Türkiz"
 		"en"			"Turquoise"
+		"fr"			"Turquoise"
 	}
 	"Lime"
 	{
 		"hu"			"Lime"
 		"en"			"Lime"
+		"fr"			"Vert clair"
 	}
 	"LightRed"
 	{
 		"hu"			"Halvány Piros"
 		"en"			"Light Red"
+		"fr"			"Rouge clair"
 	}
 	"LightGray"
 	{
 		"hu"			"Halvány Szürke"
 		"en"			"Light Gray"
+		"fr"			"Gris clair"
 	}
 	"Yellow"
 	{
 		"hu"			"Citromsárga"
 		"en"			"Yellow"
+		"fr"			"Jaune"
 	}
 	"Gray"
 	{
 		"hu"			"Szürke"
 		"en"			"Gray"
+		"fr"			"Gris"
 	}
 	"DarkBlue"
 	{
 		"hu"			"Sötét Kék"
 		"en"			"Dark Blue"
+		"fr"			"Bleu foncé"
 	}
 	"Pink"
 	{
 		"hu"			"Rózsaszín"
 		"en"			"Pink"
+		"fr"			"Rose"
 	}
 	"Orange"
 	{
 		"hu"			"Narancssárga"
 		"en"			"Orange"
+		"fr"			"Orange"
 	}
 	"ChangedTagColor"
 	{
 		"#format"		"{1:s},{2:s}"
 		"hu"			"Megváltoztattad az Elötag színét {1}{2}"
 		"en"			"You changed your tag color to {1}{2}"
+		"fr"			"Vous avez changé la couleur de votre étiquette en {1}{2}"
 	}
 	"ChangedNameColor"
 	{
 		"#format"		"{1:s},{2:s}"
 		"hu"			"Megváltoztattad az Neved színét {1}{2}"
 		"en"			"You changed your name color to {1}{2}"
+		"fr"			"Vous avez changé la couleur de votre nom en {1}{2}"
 	}
 	"ChangedChatColor"
 	{
 		"#format"		"{1:s},{2:s}"
 		"hu"			"Megváltoztattad az Írásod színét {1}{2}"
 		"en"			"You changed your chat color to {1}{2}"
+		"fr"			"Vous avez changé la couleur de votre chat en {1}{2}"
 	}
 	"ChangeClanTag"
 	{
 		"hu"			"CsapatJelzés átállítása"
 		"en"			"Set ClanTag"
+		"fr"			"Définir le tag de clan"
 	}
 	"RemoveClanTag"
 	{
 		"hu"			"CsapatJelzés átállítása"
 		"en"			"Remove ClanTag"
+		"fr"			"Supprimer le tag de clan"
 	}
 	"RemovedClanTag"
 	{
 		"hu"			"A CsapatJelzésed sikeresen törölve."
 		"en"			"Your ClanTag has been removed."
+		"fr"			"Votre tag de clan a été supprimé."
 	}
 	"TypeAborted"
 	{
 		"hu"			"Az átállítást megszakítottad."
 		"en"			"The change has been aborted."
+		"fr"			"Le changement a été annulé."
 	}
 	"NotAllowed"
 	{
 		"hu"			"Ez a jelzés tiltva van a szerveren."
 		"en"			"This tag is blocked by the server."
+		"fr"			"Cette étiquette est bloquée par le serveur."
 	}
 	"TagReset"
 	{
 		"hu"			"A Jelzést sikeresen törölted!"
 		"en"			"You just reset your tag!"
+		"fr"			"Vous venez de réinitialiser votre étiquette!"
 	}
 	"TagChanged"
 	{
 		"#format"		"{1:s}"
 		"hu"			"A Jelzésed megváltoztatva erre {1}"
 		"en"			"You changed your tag to {1}"
+		"fr"			"Vous avez changé votre étiquette en {1}"
 	}
 	"RainbowOn"
 	{
 		"hu"			"Szivárvány Modell Bekapcsolása"
 		"en"			"Enable Rainbow Model"
+		"fr"			"Activer le modèle arc-en-ciel"
 	}
 	"RainbowOff"
 	{
 		"hu"			"Szivárvány Modell Kikapcsolása"
 		"en"			"Disable Rainbow Model"
+		"fr"			"Désactiver le modèle arc-en-ciel"
 	}
 	"RainbowDisabled"
 	{
 		"hu"			"Szivárvány Modell Kikapcsolva"
 		"en"			"Rainbow Model Disabled"
+		"fr"			"Modèle arc-en-ciel désactivé"
 	}
 	"RainbowEnabledMessage"
 	{
 		"hu"			"Sikeresen beállítottad a Szivárvány Modellt."
 		"en"			"Rainbow Model turned on."
+		"fr"			"Modèle arc-en-ciel allumé."
 	}
 	"RainbowDisabledMessage"
 	{
 		"hu"			"Sikeresen kikapcsoltad a Szivárvány Modellt"
 		"en"			"Rainbow Model turned off."
+		"fr"			"Modèle arc-en-ciel désactivé."
 	}
 }
