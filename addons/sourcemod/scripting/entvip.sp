@@ -4,8 +4,8 @@
 #include <sdktools>
 #include <sdkhooks>
 #include <scp>
-#include <myjailbreak>
 #include <colors>
+#include <myjailbreak>
 
 #pragma newdecls required
 
@@ -621,8 +621,10 @@ public Action OnMessageSent(int client, const char[] command, int args)
 		return Plugin_Handled;
 	}
 	
+	char arg[128];
+	GetCmdArg(1, arg, sizeof(arg));
 	GetCmdArgString(message, sizeof(message));
-	if (IsValidClient(client) && g_bIsClientVip[client] && !(message[1] == TRIGGER_SYMBOL2))
+	if (IsValidClient(client) && (g_bIsClientVip[client] == true) && arg[0] != '/')
 	{			
 		SendMessage(client, message, false);
 		return Plugin_Handled;
@@ -632,9 +634,10 @@ public Action OnMessageSent(int client, const char[] command, int args)
 
 public Action OnMessageSentTeam(int client, const char[] command, int args)
 {
-	char message[1024];
+	char message[1024], arg[128];
+	GetCmdArg(1, arg, sizeof(arg));
 	GetCmdArgString(message, sizeof(message));
-	if (IsValidClient(client) && g_bIsClientVip[client] && !(message[1] == TRIGGER_SYMBOL2))
+	if (IsValidClient(client) && (g_bIsClientVip[client] == true) && arg[0] != '/')
 	{		
 		SendMessage(client, message, true);
 		return Plugin_Handled;
@@ -776,25 +779,6 @@ public void OnCvarChange_PlusAR(ConVar cvar, char[] oldvalue, char[] newvalue)
 	g_bPlusAR = GetConVarInt(g_hPlusAR);
 }
 
-public Action Timer_CheckForEvent_HP(Handle timer, int client)
-{
-	if (IsValidClient(client))
-	{
-		int cHealth = GetClientHealth(client);
-		if (MyJailbreak_IsEventDayPlanned() == true)
-		{
-			SetEntProp(client, Prop_Send, "m_ArmorValue", 0, 1);
-			SetEntProp(client, Prop_Send, "m_bHasHelmet", 0);
-			if (cHealth > 100)
-			{
-				SetEntityHealth(client, 100);
-			}
-			return Plugin_Stop;
-		}
-	}
-	return Plugin_Continue;
-}
-
 public Action OnPlayerThink(int client)
 {
 	if (GetConVarInt(g_hRainbow) == 1)
@@ -813,6 +797,25 @@ public Action OnPlayerThink(int client)
 			SetEntityRenderColor(client, color[0], color[1], color[2], 255);
 		}
 	}
+}
+
+public Action Timer_CheckForEvent_HP(Handle timer, int client)
+{
+	if (IsValidClient(client))
+	{
+		int cHealth = GetClientHealth(client);
+		if (MyJailbreak_IsEventDayPlanned() == true)
+		{
+			SetEntProp(client, Prop_Send, "m_ArmorValue", 0, 1);
+			SetEntProp(client, Prop_Send, "m_bHasHelmet", 0);
+			if (cHealth > 100)
+			{
+				SetEntityHealth(client, 100);
+			}
+			return Plugin_Stop;
+		}
+	}
+	return Plugin_Continue;
 }
 
 public Action Timer_Analyze(Handle timer, int client)
