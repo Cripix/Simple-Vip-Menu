@@ -4,6 +4,7 @@
 #include <sdktools>
 #include <sdkhooks>
 #include <scp>
+#include <multicolors>
 #include <colors>
 #include <myjailbreak>
 
@@ -18,6 +19,7 @@ int g_iBlockedTags = 0;
 bool g_bEnabled = true;
 int g_bPlusHP = 5;
 int g_bPlusAR = 100;
+int g_hFlag;
 
 ConVar g_hEnabled;
 ConVar g_hHealth;
@@ -27,6 +29,7 @@ ConVar g_hPlusAR;
 ConVar g_hPlusHE;
 ConVar g_hRainbow;
 ConVar g_hDeadRestrict;
+ConVar g_hChatFlag;
 
 //Cookies
 Handle g_hVIPTag;
@@ -45,6 +48,7 @@ bool g_sArmorState[MAXPLAYERS + 1];
 bool g_bIsClientVip[MAXPLAYERS + 1] = false;
 bool g_sOnClanTagType[MAXPLAYERS + 1] = false;
 bool g_sOnNameTagType[MAXPLAYERS + 1] = false;
+bool g_bClientHasPermission[MAXPLAYERS + 1] = false;
 
 char g_sTag[MAXPLAYERS + 1][128];
 char g_sTagColor[MAXPLAYERS + 1][128];
@@ -60,7 +64,7 @@ public Plugin myinfo =
 	name = "[CSGO] Entity VIP System", 
 	author = "Entity", 
 	description = "VIP Features for CSGO", 
-	version = "1.0"
+	version = "1.1b"
 };
 
 public void OnPluginStart()
@@ -73,6 +77,7 @@ public void OnPluginStart()
 	g_hPlusHP = CreateConVar("sm_entvip_plushp", "5", "How much plus hp player gets?", 0, true, 0.0, true, 1000.0);
 	g_hPlusAR = CreateConVar("sm_entvip_plusarmor", "100", "How much plus armor player gets?", 0, true, 0.0, true, 100.0);
 	g_hPlusHE = CreateConVar("sm_entvip_plushelmet", "1", "Give Helmet with Armor?", 0, true, 0.0, true, 1.0);
+	g_hChatFlag = CreateConVar("sm_entvip_colorflag", "a", "The flag of the custom chat colors");
 	g_hRainbow = CreateConVar("sm_entvip_rainbowmodel", "1", "Allow vip players to use rainbow model?", 0, true, 0.0, true, 1.0);
 	g_hDeadRestrict = CreateConVar("sm_entvip_deadrestrict", "0", "Restrict dead players to communicate with alive players? (JailBreak)", 0, true, 0.0, true, 1.0);
 	
@@ -624,8 +629,8 @@ public Action OnMessageSent(int client, const char[] command, int args)
 	char arg[128];
 	GetCmdArg(1, arg, sizeof(arg));
 	GetCmdArgString(message, sizeof(message));
-	if (IsValidClient(client) && (g_bIsClientVip[client] == true) && arg[0] != '/')
-	{			
+	if (IsValidClient(client) && arg[0] != '/')
+	{
 		SendMessage(client, message, false);
 		return Plugin_Handled;
 	}
@@ -637,8 +642,8 @@ public Action OnMessageSentTeam(int client, const char[] command, int args)
 	char message[1024], arg[128];
 	GetCmdArg(1, arg, sizeof(arg));
 	GetCmdArgString(message, sizeof(message));
-	if (IsValidClient(client) && (g_bIsClientVip[client] == true) && arg[0] != '/')
-	{		
+	if (IsValidClient(client) && arg[0] != '/')
+	{
 		SendMessage(client, message, true);
 		return Plugin_Handled;
 	}
@@ -647,19 +652,58 @@ public Action OnMessageSentTeam(int client, const char[] command, int args)
 
 stock void SendMessage(int client, char h_strMessage[1024], bool teamchat)
 {
-	if (StrEqual(g_sTagColor[client], "")) g_sTagColor[client] = "\x06";
-	if (StrEqual(g_sChatColor[client], "")) g_sChatColor[client] = "\x01";
-	if (StrEqual(g_sNameColor[client], "")) g_sNameColor[client] = "\x06";
-	if (StrEqual(g_sTag[client], "") || StrEqual(g_sTag[client], "none")) g_sTag[client] = "[V.I.P]";
-	
-	char name[MAX_NAME_LENGTH], chatMsg[1280];	
+	PlayerInformations(client);
+
+	char name[MAX_NAME_LENGTH], chatMsg[1280], TeamColor[16];
 	GetClientName(client, name, sizeof(name));
 	
-	CRemoveTags(h_strMessage, sizeof(h_strMessage));
 	StripQuotes(h_strMessage);
-
-	Format(chatMsg, sizeof(chatMsg), "%s%s %s%s: %s%s", g_sTagColor[client], g_sTag[client], g_sNameColor[client], name, g_sChatColor[client], h_strMessage);
-
+	
+	int ClientTeam = GetClientTeam(client);
+	if (ClientTeam == 2) TeamColor = "\x09";
+	else TeamColor = "\x0B";
+	
+	if ((g_bIsClientVip[client] == true))
+	{
+		if (StrEqual(g_sTagColor[client], "")) g_sTagColor[client] = TeamColor;
+		if (StrEqual(g_sChatColor[client], "")) g_sChatColor[client] = "\x01";
+		if (StrEqual(g_sNameColor[client], "")) g_sNameColor[client] = TeamColor;
+		
+		if (g_bClientHasPermission[client] == false)
+		{
+			CRemoveTags(h_strMessage, sizeof(h_strMessage));
+			Format(chatMsg, sizeof(chatMsg), "%s%s %s%s: %s%s", g_sTagColor[client], g_sTag[client], g_sNameColor[client], name, g_sChatColor[client], h_strMessage);
+		}
+		else
+		{
+			ReplaceString(h_strMessage, sizeof(h_strMessage), "{white}", "\x01", false);
+			ReplaceString(h_strMessage, sizeof(h_strMessage), "{default}", "\x03", false);
+			ReplaceString(h_strMessage, sizeof(h_strMessage), "{red}", "\x02", false); 
+			ReplaceString(h_strMessage, sizeof(h_strMessage), "{team}", "\x03", false); 
+			ReplaceString(h_strMessage, sizeof(h_strMessage), "{green}", "\x04", false); 
+			ReplaceString(h_strMessage, sizeof(h_strMessage), "{turquoise}", "\x05", false); 
+			ReplaceString(h_strMessage, sizeof(h_strMessage), "{cyan}", "\x05", false); 
+			ReplaceString(h_strMessage, sizeof(h_strMessage), "{lime}", "\x06", false); 
+			ReplaceString(h_strMessage, sizeof(h_strMessage), "{lightred}", "\x07", false); 
+			ReplaceString(h_strMessage, sizeof(h_strMessage), "{lightgray}", "\x08", false); 
+			ReplaceString(h_strMessage, sizeof(h_strMessage), "{yellow}", "\x09", false); 
+			ReplaceString(h_strMessage, sizeof(h_strMessage), "{gray}", "\x0A", false); 
+			ReplaceString(h_strMessage, sizeof(h_strMessage), "{darkblue}", "\x0C", false); 
+			ReplaceString(h_strMessage, sizeof(h_strMessage), "{blue}", "\x0B", false); 
+			ReplaceString(h_strMessage, sizeof(h_strMessage), "{pink}", "\x0E", false); 
+			ReplaceString(h_strMessage, sizeof(h_strMessage), "{violet}", "\x0E", false); 
+			ReplaceString(h_strMessage, sizeof(h_strMessage), "{orange}", "\x10", false);
+			
+			CFormatColor(h_strMessage, sizeof(h_strMessage), client);
+			Format(chatMsg, sizeof(chatMsg), "%s%s %s%s: %s%s", g_sTagColor[client], g_sTag[client], g_sNameColor[client], name, g_sChatColor[client], h_strMessage);
+		}
+	}
+	else
+	{
+		CRemoveTags(h_strMessage, sizeof(h_strMessage));
+		Format(chatMsg, sizeof(chatMsg), "%s%s: \x01%s", TeamColor, name, h_strMessage);
+	}
+	
 	if (teamchat)
 	{
 		int team = GetClientTeam(client);
@@ -760,6 +804,44 @@ public void PlayerInformations(int client)
 		if (StrEqual(tempt, "true")) g_sArmorState[client] = true; else g_sArmorState[client] = false;
 		GetClientCookie(client, g_hRainbowState, templ, sizeof(templ));
 		if (StrEqual(tempt, "true")) g_sRainbowState[client] = true; else g_sRainbowState[client] = false;
+		
+		char flag[8];
+		GetConVarString(g_hChatFlag, flag, sizeof(flag));
+		if (StrEqual(flag, "a")) g_hFlag = ADMFLAG_RESERVATION;
+		else if (StrEqual(flag, "b")) g_hFlag = ADMFLAG_GENERIC;
+		else if (StrEqual(flag, "c")) g_hFlag = ADMFLAG_KICK;
+		else if (StrEqual(flag, "d")) g_hFlag = ADMFLAG_BAN;
+		else if (StrEqual(flag, "e")) g_hFlag = ADMFLAG_UNBAN;
+		else if (StrEqual(flag, "f")) g_hFlag = ADMFLAG_SLAY;
+		else if (StrEqual(flag, "g")) g_hFlag = ADMFLAG_CHANGEMAP;
+		else if (StrEqual(flag, "h")) g_hFlag = ADMFLAG_CONVARS;
+		else if (StrEqual(flag, "i")) g_hFlag = ADMFLAG_CONFIG;
+		else if (StrEqual(flag, "j")) g_hFlag = ADMFLAG_CHAT;
+		else if (StrEqual(flag, "k")) g_hFlag = ADMFLAG_VOTE;
+		else if (StrEqual(flag, "l")) g_hFlag = ADMFLAG_PASSWORD;
+		else if (StrEqual(flag, "m")) g_hFlag = ADMFLAG_RCON;
+		else if (StrEqual(flag, "n")) g_hFlag = ADMFLAG_CHEATS;
+		else if (StrEqual(flag, "z")) g_hFlag = ADMFLAG_ROOT;
+		else if (StrEqual(flag, "o")) g_hFlag = ADMFLAG_CUSTOM1;
+		else if (StrEqual(flag, "p")) g_hFlag = ADMFLAG_CUSTOM2;
+		else if (StrEqual(flag, "q")) g_hFlag = ADMFLAG_CUSTOM3;
+		else if (StrEqual(flag, "r")) g_hFlag = ADMFLAG_CUSTOM4;
+		else if (StrEqual(flag, "s")) g_hFlag = ADMFLAG_CUSTOM5;
+		else if (StrEqual(flag, "t")) g_hFlag = ADMFLAG_CUSTOM6;
+		else
+		{
+			SetFailState("[ENTVIP] - The given flag is invalid in sm_ent_chatflag");
+		}
+		
+		int flags = GetUserFlagBits(client);		
+		if (flags & g_hFlag)
+		{
+			g_bClientHasPermission[client] = true;
+		}
+		else
+		{
+			g_bClientHasPermission[client] = false;
+		}
 	}
 }
 
